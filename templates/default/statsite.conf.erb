@@ -1,4 +1,5 @@
 [statsite]
+bind_address = <%= node[:statsite][:bind_address] %>
 port = <%= node[:statsite][:port] %>
 udp_port = <%= node[:statsite][:port] %>
 log_level = <%= node[:statsite][:loglevel] %>

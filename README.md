@@ -19,6 +19,7 @@ Attributes
 * `node[:statsite][:conf]` - Default setting:  "/etc/statsite.conf"
 * `node[:statsite][:owner]` - Default setting:  "statsite"
 * `node[:statsite][:group]` - Default setting:  "statsite"
+* `node[:statsite][:bind_address]` - Default setting: ::1
 * `node[:statsite][:port]` - Default setting:  8125
 * `node[:statsite][:loglevel]` - Default setting:  "INFO"
 * `node[:statsite][:flush_interval]` - Default setting:  10
@@ -42,6 +43,7 @@ Role example:
 ...
   "default_attributes": {
     "statsite": {
+      "bind_address": "::",
       "port": 18125,
       "stream_command": "python /opt/statsite/sinks/graphite.py graphite.recfut.com 2003 statsite",
       "service_type": "upstart",
