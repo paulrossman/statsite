@@ -81,6 +81,24 @@ when 'upstart'
     action   [:enable, :start]
   end
 
+when 'systemd'
+  service_resource = 'service[statsite]'
+
+  template "/lib/systemd/system/statsite.service" do
+    source "systemd.statsite.erb"
+    mode "0755"
+    variables(
+      :conf    => node[:statsite][:conf],
+      :path    => node[:statsite][:path],
+      :user    => node[:statsite][:owner]
+    )
+  end
+
+  service "statsite" do
+    supports :restart => true
+    action  [:enable, :start]
+  end
+
 when 'init'
   service_resource = 'service[statsite]'
 

@@ -4,13 +4,19 @@ bind_address = <%= node[:statsite][:bind_address] %>
 daemonize = 1
 pid_file = <%= node[:statsite][:pid_file] %>
 <% end -%>
-port = <%= node[:statsite][:port] %>
-udp_port = <%= node[:statsite][:port] %>
+tcp_port = <%= node[:statsite][:tcp_port] %>
+udp_port = <%= node[:statsite][:udp_port] %>
 log_level = <%= node[:statsite][:loglevel] %>
 flush_interval = <%= node[:statsite][:flush_interval] %>
 timer_eps = <%= node[:statsite][:timer_eps] %>
 <% if node[:statsite][:stream_command] -%>
 stream_cmd = <%= node[:statsite][:stream_command] %>
+<% end -%>
+<% if node[:statsite][:binary_stream] -%>
+binary_stream = <%= node[:statsite][:binary_stream] %>
+<% end -%>
+<% if node[:statsite][:use_type_prefix] -%>
+use_type_prefix = <%= node[:statsite][:use_type_prefix] %>
 <% end -%>
 
 <% if node[:statsite][:histogram] -%>
